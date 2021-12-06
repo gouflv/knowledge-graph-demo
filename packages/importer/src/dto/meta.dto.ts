@@ -26,7 +26,7 @@ export class MetaDto {
   @Transform(({ value, obj }) => value || get(obj, 'contributorInfo'), {
     toClassOnly: true
   })
-  contributor: Contributor
+  contributor: Contributor[]
 
   originDate: string
 
@@ -80,7 +80,7 @@ export class MetaDto {
   endFileName: string
 }
 
-class Contributor {
+export class Contributor {
   contributorName: string
 
   role: string
