@@ -1,26 +1,16 @@
 import 'reflect-metadata'
-import { toMetaInstances } from './parsers/meta.parser'
-import { readFile, readPackage } from './reader'
-import { logger } from './utils/logger'
 
-async function run() {
-  const pkg = await readPackage(
-    '/Users/gouflv/Projects/fujian-lib-graph/01(古籍)'
-  )
+import { importPackage } from './importer'
+import { Neo4jService } from './neo4j/neo4j.service'
 
-  console.log(pkg)
-
-  for (const { type, file } of pkg.metadata) {
-    logger.debug(`[${type}] ${file}`)
-
-    const metaObj = await readFile(file)
-
-    const metaArr = toMetaInstances(type, metaObj)
-
-    metaArr.forEach(m => {
-      logger.info(m.toString())
-    })
-  }
+function run() {
+  importPackage('/Users/gouflv/Projects/fujian-lib-graph/01(古籍)')
 }
 
-run()
+async function neo4j() {
+  const service = new Neo4jService()
+  await service.connect()
+
+  console.log(1)
+}
+neo4j()
