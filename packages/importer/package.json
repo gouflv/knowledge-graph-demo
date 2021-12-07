@@ -5,8 +5,7 @@
   "scripts": {
     "build": "tsc --build",
     "start:dev": "ts-node src/main.ts",
-    "start:prod": "node dist/main.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:prod": "node dist/main.js"
   },
   "dependencies": {
     "@lg/types": "workspace:^1.0.0",

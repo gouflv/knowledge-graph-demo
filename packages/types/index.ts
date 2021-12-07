@@ -1,2 +1,1 @@
-export * from './meta'
-console.log(2)
+export * from './src/meta'
