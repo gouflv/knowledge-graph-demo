@@ -15,3 +15,5 @@ export enum MetaType {
   Topic = '专题',
   Obj = '实物'
 }
+
+export * from './dto'

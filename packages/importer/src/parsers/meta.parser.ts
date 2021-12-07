@@ -1,18 +1,18 @@
-import { plainToInstance } from 'class-transformer'
-import { ClassConstructor } from 'class-transformer/types/interfaces'
-import { get, isArray } from 'lodash'
 import {
   EventMetaDto,
   GeoMetaDto,
   MetaDto,
+  MetaType,
   ObjMetaDto,
   OrgMetaDto,
   PersonMetaDto,
   PicMetaDto,
   TopicMetaDto,
   UnionMateDto
-} from '../dto'
-import { MetaType } from '../types'
+} from '@lg/types'
+import { plainToInstance } from 'class-transformer'
+import { ClassConstructor } from 'class-transformer/types/interfaces'
+import { get, isArray } from 'lodash'
 
 const TypeMap: Record<keyof typeof MetaType, ClassConstructor<any>> = {
   Base: MetaDto,

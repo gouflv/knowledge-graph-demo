@@ -2,11 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "./dist",
-    "baseUrl": "./"
-  },
-  "references": [
-    {
-      "path": "../types"
-    }
-  ]
+    "baseUrl": "./",
+    "composite": true
+  }
 }

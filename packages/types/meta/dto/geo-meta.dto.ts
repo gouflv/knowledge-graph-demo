@@ -1,5 +1,13 @@
 import { Type } from 'class-transformer'
 
+class EvolutionEvent {
+  evolutionEventType: string
+
+  evolutionTime: string
+
+  notes: string
+}
+
 export class GeoMetaDto {
   identifier: string
 
@@ -35,12 +43,4 @@ export class GeoMetaDto {
   toString() {
     return `Geo [${this.identifier}] refTo[${this.sourceID}] ${this.geographicalName}`
   }
-}
-
-class EvolutionEvent {
-  evolutionEventType: string
-
-  evolutionTime: string
-
-  notes: string
 }

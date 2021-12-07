@@ -10,6 +10,7 @@ importers:
 
   packages/importer:
     specifiers:
+      '@lg/types': workspace:^1.0.0
       '@types/lodash': ^4.14.177
       '@types/node': ^16.11.11
       '@types/xml2js': ^0.4.9
@@ -22,6 +23,7 @@ importers:
       winston: ^3.3.3
       xml2js: ^0.4.23
     dependencies:
+      '@lg/types': link:../types
       '@types/node': 16.11.11
       class-transformer: 0.5.1
       lodash: 4.17.21
@@ -33,6 +35,19 @@ importers:
       '@types/lodash': 4.14.177
       '@types/xml2js': 0.4.9
       ts-node: 10.4.0_68212d3c5f342a0c59715bbaaf1875e7
+      typescript: 4.5.2
+
+  packages/types:
+    specifiers:
+      '@types/lodash': ^4.14.177
+      class-transformer: ^0.5.1
+      lodash: ^4.17.21
+      typescript: ^4.5.2
+    dependencies:
+      class-transformer: 0.5.1
+      lodash: 4.17.21
+    devDependencies:
+      '@types/lodash': 4.14.177
       typescript: 4.5.2
 
 packages:

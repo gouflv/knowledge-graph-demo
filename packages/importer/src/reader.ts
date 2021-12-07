@@ -1,8 +1,8 @@
+import { MetaType } from '@lg/types'
 import * as fs from 'fs'
 import { basename } from 'path'
 import * as walkdir from 'walkdir'
 import * as xml2js from 'xml2js'
-import { MetaType } from './types'
 
 type Package = {
   metadata: {

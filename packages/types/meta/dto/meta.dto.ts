@@ -1,6 +1,21 @@
 import { Transform, Type } from 'class-transformer'
 import get from 'lodash/get'
 
+export class Contributor {
+  contributorName: string
+
+  role: string
+
+  // #Magazine Only
+  institution: string
+
+  // #Magazine Only
+  contributorDescription: string
+
+  // #Magazine Only
+  originDate: string
+}
+
 export class MetaDto {
   identifier: string
 
@@ -82,19 +97,4 @@ export class MetaDto {
   toString() {
     return `Base [${this.identifier}] refTo[${this.sourceID}] type[${this.type}] ${this.title}`
   }
-}
-
-export class Contributor {
-  contributorName: string
-
-  role: string
-
-  // #Magazine Only
-  institution: string
-
-  // #Magazine Only
-  contributorDescription: string
-
-  // #Magazine Only
-  originDate: string
 }
