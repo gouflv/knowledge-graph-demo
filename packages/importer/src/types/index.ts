@@ -11,5 +11,7 @@ export enum MetaType {
   Person = '人物',
   Org = '机构',
   Event = '事件',
-  Geo = '地理'
+  Geo = '地理',
+  Topic = '专题',
+  Obj = '实物'
 }

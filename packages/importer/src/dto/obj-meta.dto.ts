@@ -1,5 +1,5 @@
 export class ObjMetaDto {
-  identifier: string
+  objectID: string
 
   sourceID: string
 
@@ -12,4 +12,8 @@ export class ObjMetaDto {
   keyword: string
 
   abstract: string
+
+  toString() {
+    return `Obj [${this.objectID}] refTo[${this.sourceID}] ${this.objectName}`
+  }
 }

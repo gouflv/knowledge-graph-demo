@@ -7,9 +7,7 @@ export class EventMetaDto {
 
   engEventName: string
 
-  abbreviatedEve: string
-
-  ntName: string
+  abbreviatedEventName: string
 
   startTime: string
 
@@ -26,4 +24,8 @@ export class EventMetaDto {
   personalDescription: string
 
   achievement: string
+
+  toString() {
+    return `Event [${this.identifier}] refTo[${this.sourceID}] ${this.chiEventName}`
+  }
 }

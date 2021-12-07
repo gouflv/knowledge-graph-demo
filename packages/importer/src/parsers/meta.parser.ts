@@ -1,15 +1,39 @@
-import { ClassConstructor, plainToInstance } from 'class-transformer'
+import { plainToInstance } from 'class-transformer'
+import { ClassConstructor } from 'class-transformer/types/interfaces'
 import { get, isArray } from 'lodash'
+import {
+  EventMetaDto,
+  GeoMetaDto,
+  MetaDto,
+  ObjMetaDto,
+  OrgMetaDto,
+  PersonMetaDto,
+  PicMetaDto,
+  TopicMetaDto,
+  UnionMateDto
+} from '../dto'
+import { MetaType } from '../types'
 
-export function toMetaClasses<T>(
-  cls: ClassConstructor<T>,
-  plain: unknown
-): T[] {
+const TypeMap: Record<keyof typeof MetaType, ClassConstructor<any>> = {
+  Base: MetaDto,
+  Structure: MetaDto,
+  Pic: PicMetaDto,
+  Person: PersonMetaDto,
+  Org: OrgMetaDto,
+  Event: EventMetaDto,
+  Geo: GeoMetaDto,
+  Topic: TopicMetaDto,
+  Obj: ObjMetaDto
+}
+
+export function toMetaInstances(type: MetaType, plain: unknown) {
   // Unwrap `root`
   const data = get(plain, 'root', plain)
 
   // Normalize `metadata` to array
-  const metaArr = (isArray(data) ? data : [data]).map(d => d.metadata)
+  const metaArr: any[] = isArray(data.metadata)
+    ? data.metadata
+    : [data.metadata]
 
-  return plainToInstance<T, unknown>(cls, metaArr)
+  return plainToInstance<UnionMateDto, unknown>(TypeMap[type], metaArr)
 }

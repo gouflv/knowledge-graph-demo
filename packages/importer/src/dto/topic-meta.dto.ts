@@ -12,4 +12,8 @@ export class TopicMetaDto {
   description: string
 
   yield: string
+
+  toString() {
+    return `Topic [${this.identifier}] refTo[${this.sourceID}] ${this.productName}`
+  }
 }

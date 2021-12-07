@@ -1,15 +1,26 @@
 import 'reflect-metadata'
-import { MetaDto } from './dto/meta.dto'
-import { toMetaClasses } from './parsers/meta.parser'
-import { readFile } from './reader'
+import { toMetaInstances } from './parsers/meta.parser'
+import { readFile, readPackage } from './reader'
+import { logger } from './utils/logger'
 
 async function run() {
-  const file = await readFile(
-    '/Users/gouflv/Projects/fujian-lib-graph/01(古籍)/metadata/1300130202101(基础信息).xml'
+  const pkg = await readPackage(
+    '/Users/gouflv/Projects/fujian-lib-graph/01(古籍)'
   )
-  const obj = toMetaClasses(MetaDto, file)
 
-  debugger
+  console.log(pkg)
+
+  for (const { type, file } of pkg.metadata) {
+    logger.debug(`[${type}] ${file}`)
+
+    const metaObj = await readFile(file)
+
+    const metaArr = toMetaInstances(type, metaObj)
+
+    metaArr.forEach(m => {
+      logger.info(m.toString())
+    })
+  }
 }
 
 run()

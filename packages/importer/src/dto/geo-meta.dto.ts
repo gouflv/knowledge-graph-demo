@@ -19,7 +19,7 @@ export class GeoMetaDto {
 
   endTime: string
 
-  @Type(of => EvolutionEvent)
+  @Type(() => EvolutionEvent)
   evolutionEvent: EvolutionEvent
 
   authorityDocument: string
@@ -31,6 +31,10 @@ export class GeoMetaDto {
   coordinate: string
 
   azimuth: string
+
+  toString() {
+    return `Geo [${this.identifier}] refTo[${this.sourceID}] ${this.geographicalName}`
+  }
 }
 
 class EvolutionEvent {

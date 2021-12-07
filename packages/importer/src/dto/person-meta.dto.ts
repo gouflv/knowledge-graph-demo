@@ -40,4 +40,8 @@ export class PersonMetaDto {
   writings: string
 
   notes: string
+
+  toString() {
+    return `Person [${this.identifier}] refTo[${this.sourceID}] ${this.personalName}`
+  }
 }

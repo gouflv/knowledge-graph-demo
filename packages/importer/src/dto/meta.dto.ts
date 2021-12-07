@@ -22,7 +22,7 @@ export class MetaDto {
   /**
    * As alias of `contributorInfo` if docType is magazine
    */
-  @Type(of => Contributor)
+  @Type(() => Contributor)
   @Transform(({ value, obj }) => value || get(obj, 'contributorInfo'), {
     toClassOnly: true
   })
@@ -78,6 +78,10 @@ export class MetaDto {
   startFileName: string
 
   endFileName: string
+
+  toString() {
+    return `Base [${this.identifier}] refTo[${this.sourceID}] type[${this.type}] ${this.title}`
+  }
 }
 
 export class Contributor {
