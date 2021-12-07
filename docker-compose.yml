@@ -5,11 +5,15 @@ services:
     image: neo4j
     container_name: neo4j
     volumes:
-      - type: bind
-        source: $HOME/Develops/data/neo4j/data
+      - type: volume
+        source: neo4j-data
         target: /data
     ports:
       - '7474:7474'
       - '7687:7687'
     environment:
       - NEO4J_AUTH=none
+      - NEO4J_dbms_default__database=literature-graph
+
+volumes:
+  neo4j-data:
