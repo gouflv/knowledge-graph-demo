@@ -1,0 +1,7 @@
+neo4j:
+  scheme: neo4j
+  url: localhost
+  port: 7687
+  username:
+  password:
+  database: lg
