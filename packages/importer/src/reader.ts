@@ -1,4 +1,4 @@
-import { MetaType } from '@lg/types'
+import { MetaType, MetaTypeToFileNameMap } from '@lg/types'
 import * as fs from 'fs'
 import { basename } from 'path'
 import * as walkdir from 'walkdir'
@@ -71,8 +71,8 @@ function isValidateMetaFile(path: string) {
 }
 
 function getMetaType(filename: string): MetaType {
-  for (let type in MetaType) {
-    if (!!~filename.indexOf(MetaType[type])) {
+  for (let type in MetaTypeToFileNameMap) {
+    if (!!~filename.indexOf(MetaTypeToFileNameMap[type])) {
       return type as MetaType
     }
   }

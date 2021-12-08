@@ -1,9 +1,16 @@
 import { config as loadConfig } from '@lg/config'
-import { Driver, driver, Session } from 'neo4j-driver'
+import { Driver, driver, Result, Session } from 'neo4j-driver'
+
+let instance: Neo4jService
 
 export class Neo4jService {
   private config = loadConfig().neo4j
   private driver: Driver
+
+  static getInstance() {
+    instance ??= new Neo4jService()
+    return instance
+  }
 
   async connect() {
     const instance = (this.driver = driver(this.config.url))
@@ -22,7 +29,7 @@ export class Neo4jService {
     })
   }
 
-  async run(query: string, params?: Record<string, any>) {
+  async run(query: string, params?: Record<string, any>): Promise<Result> {
     const session = this.getSession()
     try {
       const res = await session.run(query, params)

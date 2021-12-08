@@ -18,7 +18,7 @@ export type Doc = {
    * alias title
    */
   name: string
-  meta: DocMetaDto
+  meta: DocMetaDto | string
 }
 
 export type Structure = {
@@ -29,7 +29,7 @@ export type Structure = {
    * alias title
    */
   name: string
-  meta: StructureMetaDto
+  meta: StructureMetaDto | string
 }
 
 export type Pic = {
@@ -40,7 +40,7 @@ export type Pic = {
    * alias title
    */
   name: string
-  meta: PicMetaDto
+  meta: PicMetaDto | string
 }
 
 export type Person = {
@@ -50,7 +50,7 @@ export type Person = {
    * alias personalName
    */
   name: string
-  meta: PersonMetaDto
+  meta: PersonMetaDto | string
 }
 
 export type Org = {
@@ -60,7 +60,7 @@ export type Org = {
    * alias chiOrganizationName
    */
   name: string
-  meta: OrgMetaDto
+  meta: OrgMetaDto | string
 }
 
 export type Event = {
@@ -70,7 +70,7 @@ export type Event = {
    * alias chiEventName
    */
   name: string
-  meta: EventMetaDto
+  meta: EventMetaDto | string
 }
 
 export type Geo = {
@@ -80,7 +80,7 @@ export type Geo = {
    * alias geographicalName
    */
   name: string
-  meta: GeoMetaDto
+  meta: GeoMetaDto | string
 }
 
 export type Product = {
@@ -90,7 +90,7 @@ export type Product = {
    * alias productName
    */
   name: string
-  meta: ProductMetaDto
+  meta: ProductMetaDto | string
 }
 
 export type Obj = {
@@ -100,5 +100,5 @@ export type Obj = {
    * alias objectName
    */
   name: string
-  meta: ObjMetaDto
+  meta: ObjMetaDto | string
 }
