@@ -23,11 +23,17 @@ export class OrgMetaDto {
 
   description: string
 
-  personalName: string
+  /**
+   * @Ref
+   */
+  personalName: string[]
 
   personalDescription: string
 
-  event: string
+  /**
+   * @Ref
+   */
+  event: string[]
 
   achievement: string
 

@@ -19,7 +19,10 @@ export class EventMetaDto {
 
   description: string
 
-  personalName: string
+  /**
+   * @Ref
+   */
+  personalName: string[]
 
   personalDescription: string
 

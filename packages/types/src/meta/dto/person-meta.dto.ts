@@ -23,11 +23,17 @@ export class PersonMetaDto {
 
   kinship: string
 
-  kinshipPerson: string
+  /**
+   * @Ref
+   */
+  kinshipPerson: string[]
 
   noKinship: string
 
-  noKinshipPerson: string
+  /**
+   * @Ref
+   */
+  noKinshipPerson: string[]
 
   biography: string
 

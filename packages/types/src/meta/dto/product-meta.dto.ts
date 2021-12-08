@@ -1,4 +1,4 @@
-export class TopicMetaDto {
+export class ProductMetaDto {
   identifier: string
 
   sourceID: string
@@ -7,6 +7,9 @@ export class TopicMetaDto {
 
   type: string
 
+  /**
+   * @Ref
+   */
   originPlace: string
 
   description: string
@@ -14,6 +17,6 @@ export class TopicMetaDto {
   yield: string
 
   toString() {
-    return `Topic [${this.identifier}] refTo[${this.sourceID}] ${this.productName}`
+    return `Product [${this.identifier}] refTo[${this.sourceID}] ${this.productName}`
   }
 }

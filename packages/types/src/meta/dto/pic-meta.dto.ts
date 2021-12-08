@@ -1,3 +1,7 @@
-import { MetaDto } from './meta.dto'
+import { DocMetaDto } from './doc-meta.dto'
 
-export class PicMetaDto extends MetaDto {}
+export class PicMetaDto extends DocMetaDto {
+  toString() {
+    return `Pic [${this.identifier}] refTo[${this.sourceID}] type[${this.type}] ${this.title}`
+  }
+}

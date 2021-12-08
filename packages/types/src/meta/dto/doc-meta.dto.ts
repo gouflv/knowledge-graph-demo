@@ -1,22 +1,8 @@
 import { Transform, Type } from 'class-transformer'
-import get from 'lodash/get'
+import { get } from 'lodash'
+import { Contributor } from './shared'
 
-export class Contributor {
-  contributorName: string
-
-  role: string
-
-  // #Magazine Only
-  institution: string
-
-  // #Magazine Only
-  contributorDescription: string
-
-  // #Magazine Only
-  originDate: string
-}
-
-export class MetaDto {
+export class DocMetaDto {
   identifier: string
 
   sourceID: string
@@ -38,9 +24,24 @@ export class MetaDto {
    * As alias of `contributorInfo` if docType is magazine
    */
   @Type(() => Contributor)
-  @Transform(({ value, obj }) => value || get(obj, 'contributorInfo'), {
-    toClassOnly: true
-  })
+  @Transform(
+    ({ value, obj }) => {
+      // Magazine only
+      if (get(obj, 'contributorInfo')) {
+        return get(obj, 'contributorInfo')
+      }
+      // Transform contributorName to instance
+      if (get(obj, 'contributorName')) {
+        const obj = new Contributor()
+        obj.contributorName = get(obj, 'contributorName')
+        return obj
+      }
+      return value
+    },
+    {
+      toClassOnly: true
+    }
+  )
   contributor: Contributor[]
 
   originDate: string
@@ -70,14 +71,29 @@ export class MetaDto {
 
   keyword: string[]
 
-  personalName: string
+  /**
+   * @Ref
+   */
+  personalName: string[]
 
-  organizationName: string
+  /**
+   * @Ref
+   */
+  organizationName: string[]
 
-  geographicalName: string
+  /**
+   * @Ref
+   */
+  geographicalName: string[]
 
-  eventName: string
+  /**
+   * @Ref
+   */
+  eventName: string[]
 
+  /**
+   * @Ref
+   */
   tableID: string[]
 
   tableNumber: string
@@ -95,6 +111,6 @@ export class MetaDto {
   endFileName: string
 
   toString() {
-    return `Base [${this.identifier}] refTo[${this.sourceID}] type[${this.type}] ${this.title}`
+    return `Doc [${this.identifier}] refTo[${this.sourceID}] type[${this.type}] ${this.title}`
   }
 }
