@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prebuild": "rimraf dist",
     "build": "tsc",
     "start:dev": "ts-node src/main.ts"
   },
@@ -11,7 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "js-yaml": "^4.1.0"
+    "js-yaml": "^4.1.0",
+    "rimraf": "^3.0.2"
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.5",

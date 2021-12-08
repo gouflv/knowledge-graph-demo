@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "scripts": {
+    "prebuild": "rimraf dist",
     "build": "tsc",
     "build:watch": "tsc -w"
   },
@@ -12,6 +13,7 @@
   },
   "dependencies": {
     "class-transformer": "^0.5.1",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "rimraf": "^3.0.2"
   }
 }
