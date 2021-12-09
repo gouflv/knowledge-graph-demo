@@ -1,4 +1,6 @@
-export class ProductMetaDto {
+import { MetaBase } from './meta-base'
+
+export class ProductMetaDto extends MetaBase {
   identifier: string
 
   sourceID: string

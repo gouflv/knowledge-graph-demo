@@ -1,8 +1,9 @@
 import { Transform, Type } from 'class-transformer'
 import { get } from 'lodash'
+import { MetaBase } from './meta-base'
 import { Contributor } from './shared'
 
-export class DocMetaDto {
+export class DocMetaDto extends MetaBase {
   identifier: string
 
   sourceID: string

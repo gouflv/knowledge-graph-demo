@@ -1,5 +1,9 @@
-export class ObjMetaDto {
+import { MetaBase } from './meta-base'
+
+export class ObjMetaDto extends MetaBase {
   objectID: string
+
+  identifier: never
 
   sourceID: string
 
@@ -15,5 +19,9 @@ export class ObjMetaDto {
 
   toString() {
     return `Obj [${this.objectID}] refTo[${this.sourceID}] ${this.objectName}`
+  }
+
+  getId(): string {
+    return `${this.sourceID}_${this.objectID}`
   }
 }

@@ -12,3 +12,11 @@ export class Contributor {
   // #Magazine Only
   originDate: string
 }
+
+export class EvolutionEvent {
+  evolutionEventType: string
+
+  evolutionTime: string
+
+  notes: string
+}

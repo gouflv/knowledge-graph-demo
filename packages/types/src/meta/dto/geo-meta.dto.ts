@@ -1,14 +1,8 @@
 import { Type } from 'class-transformer'
+import { MetaBase } from './meta-base'
+import { EvolutionEvent } from './shared'
 
-class EvolutionEvent {
-  evolutionEventType: string
-
-  evolutionTime: string
-
-  notes: string
-}
-
-export class GeoMetaDto {
+export class GeoMetaDto extends MetaBase {
   identifier: string
 
   sourceID: string

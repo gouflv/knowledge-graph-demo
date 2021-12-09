@@ -1,4 +1,6 @@
-export class EventMetaDto {
+import { MetaBase } from './meta-base'
+
+export class EventMetaDto extends MetaBase {
   identifier: string
 
   sourceID: string

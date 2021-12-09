@@ -1,4 +1,6 @@
-export class OrgMetaDto {
+import { MetaBase } from './meta-base'
+
+export class OrgMetaDto extends MetaBase {
   identifier: string
 
   sourceID: string
