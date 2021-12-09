@@ -10,7 +10,7 @@ export async function docParser(type: DocType, meta: DocMetaDto) {
   const query = Neo4jQuery.getInstance()
 
   const data: GraphNodeEntities.Doc = {
-    id: meta.identifier,
+    id: meta.recordId,
     type,
     name: meta.title,
     meta: JSON.stringify(meta)

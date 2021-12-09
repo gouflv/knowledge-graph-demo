@@ -1,11 +1,7 @@
 import { config as loadConfig } from '@lg/config'
 import { GraphNodeRelations, GraphNodeType } from '@lg/types'
 import { Connection, node, relation } from 'cypher-query-builder'
-
-type NodeIdentity = {
-  label: GraphNodeType
-  id: string
-}
+import { NodeIdentity } from './types'
 
 let instance: Neo4jQuery
 
@@ -15,10 +11,18 @@ export class Neo4jQuery {
   conn: Connection
 
   constructor() {
+    this.connect()
+  }
+
+  connect() {
     this.conn = new Connection(this.config.url, {
       username: this.config.username,
       password: this.config.password
     })
+  }
+
+  async disconnect() {
+    await this.conn.close()
   }
 
   async findNode<T>(label: GraphNodeType, id: string): Promise<T | null> {

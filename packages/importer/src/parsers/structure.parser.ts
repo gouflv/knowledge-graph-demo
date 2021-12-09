@@ -12,10 +12,10 @@ export async function structureParser(meta: StructureMetaDto) {
   const docId = meta.sourceID
 
   const data: GraphNodeEntities.Structure = {
-    id: meta.identifier,
+    id: meta.recordId,
     docId,
     type: meta.type,
-    name: meta.type,
+    name: meta.title,
     meta: JSON.stringify(meta)
   }
 
